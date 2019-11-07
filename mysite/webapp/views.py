@@ -8,17 +8,31 @@ def home(request):
     return render(request, 'home.html', {'count' : count })
 
 
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid:
-            form.save()
-            return redirect('home')
+# def signup(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid:
+#             form.save()
+#             return redirect('home')
         
-    else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form' : form})
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'signup.html', {'form' : form})
 
     
 # def login(request):
 #     return render(request, 'login.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
