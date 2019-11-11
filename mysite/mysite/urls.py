@@ -18,9 +18,12 @@ from django.urls import path, include
 from webapp.views import home, signup
 from django.conf.urls import url
 
+
+
 urlpatterns = [
     url('^home/', home, name='home'),
     url('^signup/', signup, name='signup'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ]
