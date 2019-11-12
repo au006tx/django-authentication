@@ -5,7 +5,7 @@
         <div class="content-left">
             <div class='inner-content'>
                 <h1> Hello </h1>
-                <h4> Hey! Welcome {{user.username}} </h4>
+                <h4> Hey! Welcome {% if user.is_authenticated %} {{user.username}} {% else %} Visitor! {% endif %}</h4>
                 <p> Total Number of Users Registered = <b> {{ count }} </b>  </p>
             </div>
 
