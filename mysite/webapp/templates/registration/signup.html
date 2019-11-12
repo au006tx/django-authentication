@@ -1,53 +1,30 @@
-
-
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 
-  <!-- <h2 style="display:flex; justify-content: center;">Sign up</h2> -->
-  <!-- <div style="display:flex; justify-content: flex-start; background-color: deepskyblue; margin-left: 300px; margin-right: 300px;">
-      
-    <form style="padding-left: 10px" method="post">
-        {% csrf_token %}
-        {% for field in form %}
-          <p>
-            {{ field.label_tag }}<br>
-            {{ field }}
-            {% if field.help_text %}
-              <small style="color: grey">{{ field.help_text }}</small>
-            {% endif %}
-            {% for error in field.errors %}
-              <p style="color: red">{{ error }}</p>
+<div class='content-main'>   
+    <div class="content-left"> 
+        <img src="{% static 'img/base.jpg' %}" alt="base" width=100%, height=100%/>
+    </div>
+    <div class="signup-content-right">
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+                {% if field.help_text %}
+                  <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              </p>
             {% endfor %}
-          </p>
-        {% endfor %}
-        <button type="submit">Sign up</button>
-      </form>
-  </div> -->
-  <div class='content-main'>   
-      <div class="content-left"> 
-          <img src="{% static 'img/base.jpg' %}" alt="base" width=100%, height=100%/>
-      </div>
-      <div class="signup-content-right">
-          <form method="post">
-              {% csrf_token %}
-              {% for field in form %}
-                <p>
-                  {{ field.label_tag }}<br>
-                  {{ field }}
-                  {% if field.help_text %}
-                    <small style="color: grey">{{ field.help_text }}</small>
-                  {% endif %}
-                  {% for error in field.errors %}
-                    <p style="color: red">{{ error }}</p>
-                  {% endfor %}
-                </p>
-              {% endfor %}
-              <button type="submit">Sign up</button>
-            </form>
-          
-      </div>
-  </div>
+            <button type="submit">Sign up</button>
+          </form>
+        
+    </div>
+</div>
   
 {% endblock %}
