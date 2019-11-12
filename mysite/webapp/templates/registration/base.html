@@ -1,18 +1,36 @@
+{% load static %}
 <!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
         <title> {% block title %} {% endblock %}</title>
+        <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h2> LIBRARY MANAGEMENT </h2>
-        <a href={% url 'home' %}>HOME</a> /
-        <a href={% url 'signup' %}>SIGN UP</a> /
-        <a href={% url 'login' %}>LOG IN</a> /
-
-        <hr />
+        <div class='header-main'>
+            <div class='header-left'>
+                <h2> TARZAN SKILLS LIBRARY </h2>
+            </div>
+            <div class='header-right'>
+                <h3 style="padding-right:20px; padding-left:20px;"> <a href={% url 'home' %}>HOME</a>  </h3>
+                <h3 style="padding-right:20px; padding-left:20px;"> <a href={% url 'signup' %}>SIGNUP</a> </h3>
+                <h3 style="padding-right:20px; padding-left:20px;"> <a href={% url 'login' %}>LOGIN</a> </h3>
+            </div>
+        </div>
+        <div class='content-main'>   
+            <div class="content-left">
+                <div class='inner-content'>
+                    <h1> Hello </h1>
+                </div>
+   
+            </div>
+            <div class="content-right">
+                <img src="{% static 'img/base.jpg' %}" alt="base" width=100%, height=100%/>
+            </div>
+        </div>
         {% block content %}
 
         {% endblock %}
+        
     </body>
 </html>
