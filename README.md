@@ -1,1 +1,1 @@
-# django-authentication
+# django-authentication using Django Templates
